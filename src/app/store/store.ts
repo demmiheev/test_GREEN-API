@@ -1,10 +1,10 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit'
+import { chatsSlice } from '@/entities/chat'
 import { sessionSlice } from '@/entities/session'
 import { greenApi } from '@/shared/api/greenApi'
-import { listenerMiddleware } from './listenerMiddleware'
 import { loadPersistedState, setupPersistence } from './persistence'
 
-const rootReducer = combineSlices(greenApi, sessionSlice)
+const rootReducer = combineSlices(greenApi, sessionSlice, chatsSlice)
 
 export type RootState = ReturnType<typeof rootReducer>
 
@@ -12,8 +12,7 @@ export function makeStore(preloadedState?: Partial<RootState>) {
   return configureStore({
     reducer: rootReducer,
     preloadedState,
-    middleware: (getDefault) =>
-      getDefault().prepend(listenerMiddleware.middleware).concat(greenApi.middleware),
+    middleware: (getDefault) => getDefault().concat(greenApi.middleware),
   })
 }
 
