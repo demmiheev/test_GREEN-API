@@ -1,0 +1,9 @@
+import styles from './Spinner.module.css'
+
+export function Spinner({ size = 24 }: { size?: number }) {
+  return (
+    <span className={styles.spinner} style={{ width: size, height: size }} role="status">
+      <span className={styles.srOnly}>Загрузка…</span>
+    </span>
+  )
+}
