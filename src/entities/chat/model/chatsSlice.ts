@@ -13,8 +13,12 @@ export const chatsAdapter = createEntityAdapter<Chat>({
   sortComparer: (a, b) => b.lastActivityAt - a.lastActivityAt,
 })
 
+const toSeconds = (ms: number) => Math.floor(ms / 1000)
+
 export const messagesAdapter = createEntityAdapter<Message>({
-  sortComparer: (a, b) => a.timestamp - b.timestamp,
+  // У GREEN-API timestamp в секундах, у локальных сообщений в мс: сравнение по секундам
+  // сохраняет порядок поступления внутри одной секунды
+  sortComparer: (a, b) => toSeconds(a.timestamp) - toSeconds(b.timestamp),
 })
 
 export interface ChatsState {
