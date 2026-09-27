@@ -6,6 +6,7 @@ import {
   type PayloadAction,
 } from '@reduxjs/toolkit'
 import { loggedOut } from '@/entities/session'
+import { formatPhone } from '@/shared/lib/phone'
 import type { Chat, Message, MessageStatus } from './types'
 
 export const chatsAdapter = createEntityAdapter<Chat>({
@@ -96,8 +97,12 @@ export const chatsSlice = createSlice({
           lastActivityAt: message.timestamp,
           unreadCount: 0,
         })
-      } else if (!existing.phone && chat.phone) {
-        existing.phone = chat.phone
+      } else {
+        if (!existing.phone && chat.phone) existing.phone = chat.phone
+        // У чата, созданного по номеру, имя-заглушка заменяется именем из первого ответа
+        if (existing.phone && existing.name === formatPhone(existing.phone) && chat.name) {
+          existing.name = chat.name
+        }
       }
 
       messagesAdapter.addOne(state.messages, {
