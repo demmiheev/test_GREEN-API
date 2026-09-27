@@ -11,6 +11,9 @@
   --color-bubble-out: #e3fee0;
   --color-bubble-out-meta: #4fae4e;
   --color-danger: #e53935;
+  --chat-bg-pattern:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.35) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(51, 144, 236, 0.12) 0, transparent 45%);
 
   --radius-s: 8px;
   --radius-m: 12px;
@@ -40,6 +43,9 @@
     --color-bubble-in: #212121;
     --color-bubble-out: #2b5278;
     --color-bubble-out-meta: #a8d4ff;
+    --chat-bg-pattern:
+      radial-gradient(circle at 20% 20%, rgba(51, 144, 236, 0.1) 0, transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(51, 144, 236, 0.08) 0, transparent 45%);
     --color-accent: #3390ec;
     --color-accent-hover: #57a8f5;
   }
