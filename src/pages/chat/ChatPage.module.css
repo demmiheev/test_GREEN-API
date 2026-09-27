@@ -1,0 +1,30 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar,
+.chat {
+  min-width: 0;
+  min-height: 0;
+}
+
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat {
+    display: none;
+  }
+
+  .chatOpen .sidebar {
+    display: none;
+  }
+
+  .chatOpen .chat {
+    display: block;
+  }
+}

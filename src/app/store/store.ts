@@ -1,4 +1,9 @@
-import { combineSlices, configureStore } from '@reduxjs/toolkit'
+import {
+  combineSlices,
+  configureStore,
+  type ThunkAction,
+  type UnknownAction,
+} from '@reduxjs/toolkit'
 import { chatsSlice } from '@/entities/chat'
 import { sessionSlice } from '@/entities/session'
 import { greenApi } from '@/shared/api/greenApi'
@@ -24,3 +29,5 @@ export function createAppStore() {
   setupPersistence(store)
   return store
 }
+
+export type AppThunk<ReturnType = void> = ThunkAction<ReturnType, RootState, unknown, UnknownAction>

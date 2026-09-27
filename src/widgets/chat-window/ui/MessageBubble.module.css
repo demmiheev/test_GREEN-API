@@ -1,0 +1,71 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
+.incoming {
+  align-items: flex-start;
+}
+
+.outgoing {
+  align-items: flex-end;
+}
+
+.bubble {
+  position: relative;
+  max-width: min(480px, 85%);
+  padding: 6px 8px 6px 10px;
+  border-radius: var(--radius-l);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  overflow-wrap: anywhere;
+}
+
+.incoming .bubble {
+  border-bottom-left-radius: 4px;
+  background: var(--color-bubble-in);
+}
+
+.outgoing .bubble {
+  border-bottom-right-radius: 4px;
+  background: var(--color-bubble-out);
+}
+
+.text {
+  white-space: pre-wrap;
+}
+
+.unsupported {
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.meta {
+  position: relative;
+  top: 6px;
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  user-select: none;
+}
+
+.outgoing .meta {
+  color: var(--color-bubble-out-meta);
+}
+
+.retry {
+  margin-top: 2px;
+  padding: 2px 8px;
+  border: none;
+  background: transparent;
+  color: var(--color-danger);
+  font-size: 0.8125rem;
+}
+
+.retry:hover {
+  text-decoration: underline;
+}

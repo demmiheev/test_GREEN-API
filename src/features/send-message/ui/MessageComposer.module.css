@@ -1,0 +1,61 @@
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+  padding: 8px 16px 20px;
+}
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  min-height: 54px;
+  padding: 0 16px;
+  border-radius: var(--radius-m);
+  border-bottom-right-radius: 0;
+  background: var(--color-bg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.input {
+  flex: 1;
+  padding: 16px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  line-height: 1.35;
+}
+
+.send {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-accent);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.send:hover:not(:disabled) {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.send:disabled {
+  color: var(--color-text-secondary);
+}
+
+.send:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
